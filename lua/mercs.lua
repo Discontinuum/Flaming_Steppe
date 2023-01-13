@@ -20,6 +20,10 @@ mercs_groups = {
 		id = "Tumen",
 		units = {"Ogre_Mancatcher", "Ogre_Grunt_steppe", "Ogre_Apprentice"},
 	},
+	{
+		id = "Mandate",
+		units = {"Mandate_Jorogumo", "Mandate_Kobold", "Mandate_Vixen_Witch"},
+	},
 }
 
 local function shuffle_from_idioms(x)
