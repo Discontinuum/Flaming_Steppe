@@ -2,7 +2,7 @@ local mercs_groups = {}
 mercs_groups = {
 	{
 		id = "Wesnoth",
-		units = {"Fencer", "Horseman", "Heavy Infantryman"},
+		units = {"Fencer", "Horseman", "Heavy Infantryman", "Sergeant"},
 	},
 	{
 		id = "Elves",
@@ -24,6 +24,10 @@ mercs_groups = {
 		id = "Mandate",
 		units = {"Mandate_Jorogumo", "Mandate_Kobold", "Mandate_Vixen_Witch"},
 	},
+	{
+		id = "Orcs",
+		units = {"Orcish Assassin", "Orcish Leader", "Wolf Rider"},
+	}
 }
 
 local function shuffle_from_idioms(x)
