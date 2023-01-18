@@ -28,7 +28,18 @@ function callbacks.generate_map(params)
 		end
 		local r = random(1000)
 		if r <= params.village_density then
-			map:set_tile(x, y, params.terrain_village)
+			local adj_villa = false
+			for xn, yn in MG.adjacent_tiles(x, y) do
+				if map:get_tile(xn,yn) == params.terrain_village then
+					adj_villa = true
+					break
+				end
+			end
+			if adj_villa then 
+				map:set_tile(x, y, params.terrain_clear)
+			else
+				map:set_tile(x, y, params.terrain_village)
+			end
 		else
 			map:set_tile(x, y, params.terrain_clear)
 		end
@@ -200,6 +211,21 @@ function callbacks.generate_map(params)
 				end
 			end
 			map[transforms[random(#transforms)]](map)
+		end
+	end
+	
+	for x = 1, params.map_width do
+		for y = 1, params.map_height do
+			if map:get_tile(x,y) == params.terrain_clear then
+				local r = random(1000)
+				if r <= params.hill_density then
+					map:set_tile(x, y, params.terrain_hill)
+				end
+				r = random(1000)
+				if r <= params.light_density then
+					map:set_tile(x, y, map:get_tile(x,y)..params.overlay_light)
+				end
+			end
 		end
 	end
 
